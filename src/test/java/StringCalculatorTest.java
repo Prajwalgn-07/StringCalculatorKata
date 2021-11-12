@@ -7,4 +7,8 @@ public class StringCalculatorTest {
     public void emptyStringTest(){
         Assert.assertEquals(0,stringCalculator.Add(""));
     }
+    @Test
+    public void singleNumberTest(){
+        Assert.assertEquals(2,stringCalculator.Add("2"));
+    }
 }
