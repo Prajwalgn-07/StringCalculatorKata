@@ -15,4 +15,8 @@ public class StringCalculatorTest {
     public void twoNumbersTest(){
         Assert.assertEquals(28,stringCalculator.Add("25,3"));
     }
+    @Test
+    public void largeNumberTest(){
+        Assert.assertEquals(5452010,stringCalculator.Add("234,543,3767,789,5446677"));
+    }
 }

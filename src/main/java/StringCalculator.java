@@ -3,8 +3,8 @@ import java.util.Arrays;
 
 public class StringCalculator {
 
-    public int Add(String numbers) {
-        int totalSum = 0;
+    public long Add(String numbers) {
+        long totalSum = 0;
         if(!numbers.isEmpty()) {
             String[] splitNumbers = numbers.split(",");
             for(String number:splitNumbers){
