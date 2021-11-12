@@ -11,4 +11,8 @@ public class StringCalculatorTest {
     public void singleNumberTest(){
         Assert.assertEquals(2,stringCalculator.Add("2"));
     }
+    @Test
+    public void twoNumbersTest(){
+        Assert.assertEquals(28,stringCalculator.Add("25,3"));
+    }
 }
