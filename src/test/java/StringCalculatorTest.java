@@ -17,7 +17,7 @@ public class StringCalculatorTest {
     }
     @Test
     public void largeNumberTest(){
-        Assert.assertEquals(5452010,stringCalculator.Add("234,543,3767,789,5446677"));
+        Assert.assertEquals(2486,stringCalculator.Add("234,543,376,789,544"));
     }
     @Test
     public void newLineAndCommaInStringTest(){
