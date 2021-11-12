@@ -4,8 +4,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class StringCalculator {
+    private int countOfAddMethodInvoked=0;
 
     public long Add(String numbers) {
+        this.countOfAddMethodInvoked+=1;
         long totalSum = 0;
         if(!numbers.isEmpty()) {
             String[] splitNumbers = numbers.split("[,\n//;]");
@@ -25,5 +27,8 @@ public class StringCalculator {
         }
         return totalSum;
         }
+    public int GetCalledCount(){
+        return this.countOfAddMethodInvoked;
+    }
     }
 

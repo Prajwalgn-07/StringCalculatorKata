@@ -35,4 +35,12 @@ public class StringCalculatorTest {
     public void moreNegativeNumbersTest(){
         stringCalculator.Add(";;//-1,-3");
     }
+    @Test
+    public void numberOfTimesAddMethodInvoked(){
+        stringCalculator.Add("");
+        stringCalculator.Add("2");
+        stringCalculator.Add("1\n2,3");
+        stringCalculator.Add("25,3");
+        Assert.assertEquals(4,stringCalculator.GetCalledCount());
+    }
 }
