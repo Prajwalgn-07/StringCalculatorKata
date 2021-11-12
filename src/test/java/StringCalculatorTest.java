@@ -43,4 +43,8 @@ public class StringCalculatorTest {
         stringCalculator.Add("25,3");
         Assert.assertEquals(4,stringCalculator.GetCalledCount());
     }
+    @Test
+    public void ignoringValuesGreaterThan1k(){
+        Assert.assertEquals(2,stringCalculator.Add("//1001;2"));
+    }
 }

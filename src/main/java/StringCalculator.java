@@ -22,7 +22,8 @@ public class StringCalculator {
                 catch (IllegalArgumentException e){
                     System.out.println(e.getMessage());
                 }
-                totalSum+=value;
+                if(value<1000)
+                    totalSum+=value;
             }
         }
         return totalSum;
