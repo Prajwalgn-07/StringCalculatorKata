@@ -31,4 +31,8 @@ public class StringCalculatorTest {
     public void singleNegativeNumberTest(){
         stringCalculator.Add("//;-1;2");
     }
+    @Test
+    public void moreNegativeNumbersTest(){
+        stringCalculator.Add(";;//-1,-3");
+    }
 }

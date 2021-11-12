@@ -15,7 +15,7 @@ public class StringCalculator {
                 int value=Integer.parseInt(number);
                 try {
                     if (value < 0)
-                        throw new IllegalArgumentException("Negative numbers are not allowed");
+                        throw new IllegalArgumentException("Negative numbers are not allowed and the negative number is "+value);
                 }
                 catch (IllegalArgumentException e){
                     System.out.println(e.getMessage());
