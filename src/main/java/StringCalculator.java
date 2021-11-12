@@ -7,13 +7,20 @@ public class StringCalculator {
 
     public long Add(String numbers) {
         long totalSum = 0;
-
         if(!numbers.isEmpty()) {
             String[] splitNumbers = numbers.split("[,\n//;]");
             List<String> listOfNumbers = new ArrayList<String>(Arrays.asList(splitNumbers));
             listOfNumbers.removeAll(Collections.singleton(""));
             for(String number:listOfNumbers){
-                totalSum+=Integer.parseInt(number);
+                int value=Integer.parseInt(number);
+                try {
+                    if (value < 0)
+                        throw new IllegalArgumentException("Negative numbers are not allowed");
+                }
+                catch (IllegalArgumentException e){
+                    System.out.println(e.getMessage());
+                }
+                totalSum+=value;
             }
         }
         return totalSum;

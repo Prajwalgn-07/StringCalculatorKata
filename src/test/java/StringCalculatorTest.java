@@ -27,4 +27,8 @@ public class StringCalculatorTest {
     public void differentDelimitersTest(){
         Assert.assertEquals(3,stringCalculator.Add("//;\n1;2"));
     }
+    @Test
+    public void singleNegativeNumberTest(){
+        stringCalculator.Add("//;-1;2");
+    }
 }
