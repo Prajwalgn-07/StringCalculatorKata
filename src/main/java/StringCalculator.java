@@ -8,28 +8,22 @@ public class StringCalculator {
 
     public long Add(String numbers) {
         this.countOfAddMethodInvoked+=1;
-        long totalSum = 0;
-        if(!numbers.isEmpty()) {
-            String[] splitNumbers = numbers.split("[,\n//;]");
-            List<String> listOfNumbers = new ArrayList<String>(Arrays.asList(splitNumbers));
-            listOfNumbers.removeAll(Collections.singleton(""));
-            for(String number:listOfNumbers){
-                int value=Integer.parseInt(number);
-                try {
-                    if (value < 0)
-                        throw new IllegalArgumentException("Negative numbers are not allowed and the negative number is "+value);
-                }
-                catch (IllegalArgumentException e){
-                    System.out.println(e.getMessage());
-                }
-                if(value<1000)
-                    totalSum+=value;
-            }
-        }
-        return totalSum;
-        }
+        if(numbers.isEmpty())
+            return 0;
+        List<String>listOfNumbers=splitNumberFromDelimiters(numbers);
+        return new Numbers().sumOfNumbers(listOfNumbers);
+    }
+
     public int GetCalledCount(){
         return this.countOfAddMethodInvoked;
     }
+
+    public List<String> splitNumberFromDelimiters(String number){
+        String[] splitNumbers = number.split("[,\n//;]");
+        List<String> listOfNumbers = new ArrayList<String>(Arrays.asList(splitNumbers));
+        listOfNumbers.removeAll(Collections.singleton(""));
+        return listOfNumbers;
+    }
+
     }
 
