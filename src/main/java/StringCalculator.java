@@ -4,13 +4,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class StringCalculator {
-    private int countOfAddMethodInvoked=0;
+    private int countOfAddMethodInvoked;
+    private List<String>listOfNumbers;
+
+    public StringCalculator(){
+        this.countOfAddMethodInvoked=0;
+    }
 
     public long Add(String numbers) {
         this.countOfAddMethodInvoked+=1;
         if(numbers.isEmpty())
             return 0;
-        List<String>listOfNumbers=splitNumberFromDelimiters(numbers);
+        splitNumberFromDelimiters(numbers);
         return new Numbers().sumOfNumbers(listOfNumbers);
     }
 
@@ -18,11 +23,10 @@ public class StringCalculator {
         return this.countOfAddMethodInvoked;
     }
 
-    public List<String> splitNumberFromDelimiters(String number){
+    public void splitNumberFromDelimiters(String number){
         String[] splitNumbers = number.split("[,\n//;]");
-        List<String> listOfNumbers = new ArrayList<String>(Arrays.asList(splitNumbers));
-        listOfNumbers.removeAll(Collections.singleton(""));
-        return listOfNumbers;
+        this.listOfNumbers = new ArrayList<String>(Arrays.asList(splitNumbers));
+        this.listOfNumbers.removeAll(Collections.singleton(""));
     }
 
     }
