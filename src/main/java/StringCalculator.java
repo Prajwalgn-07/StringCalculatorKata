@@ -1,22 +1,27 @@
+import Utils.PropertyReader;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class StringCalculator {
-    private int countOfAddMethodInvoked;
-    private List<String>listOfNumbers;
+    public int countOfAddMethodInvoked;
+    public List<String>listOfNumbers;
+    public PropertyReader propertyReader;
 
-    public StringCalculator(){
+    public StringCalculator() throws IOException {
         this.countOfAddMethodInvoked=0;
+        propertyReader=new PropertyReader("./src/main/resources/Conditions.properties");
     }
 
-    public long Add(String numbers) {
+    public long Add(String numbers) throws IOException {
         this.countOfAddMethodInvoked+=1;
         if(numbers.isEmpty())
             return 0;
         splitNumberFromDelimiters(numbers);
-        return new Numbers().sumOfNumbers(listOfNumbers);
+        return new Numbers().sumOfNumbers();
     }
 
     public int GetCalledCount(){
@@ -24,8 +29,8 @@ public class StringCalculator {
     }
 
     public void splitNumberFromDelimiters(String number){
-        String[] splitNumbers = number.split("[,\n//;]");
-        this.listOfNumbers = new ArrayList<String>(Arrays.asList(splitNumbers));
+        String[] splitNumbers = number.split(propertyReader.getProperty("excludedDelimiters"));
+        this.listOfNumbers = new ArrayList<>(Arrays.asList(splitNumbers));
         this.listOfNumbers.removeAll(Collections.singleton(""));
     }
 

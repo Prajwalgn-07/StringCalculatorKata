@@ -1,13 +1,14 @@
-import java.util.List;
+import java.io.IOException;
 
-public class Numbers {
+public class Numbers extends StringCalculator{
     private int totalSumOfNumbers;
 
-    public Numbers(){
+    public Numbers() throws IOException {
+        super();
         this.totalSumOfNumbers=0;
     }
 
-    public int sumOfNumbers(List<String>listOfNumbers){
+    public int sumOfNumbers() {
         for(String number:listOfNumbers){
             int numberValue=parseStringToInt(number);
             try {
@@ -17,7 +18,7 @@ public class Numbers {
             catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
             }
-            if(numberValue<1000)
+            if(numberValue<parseStringToInt(propertyReader.getProperty("maxLimitForSum")))
                 totalSumOfNumbers+=numberValue;
         }
         return totalSumOfNumbers;
